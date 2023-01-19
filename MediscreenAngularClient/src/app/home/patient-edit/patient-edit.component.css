@@ -1,0 +1,23 @@
+input.ng-invalid.ng-touched
+{
+  border: 2px solid red;
+  background: antiquewhite;
+}
+
+select.ng-invalid.ng-touched
+{
+  border: 2px solid red;
+  background: antiquewhite;
+}
+
+select {
+  width: 140px;
+  height: 39px;
+  /*padding: 5px 35px 5px 5px;*/
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /*-webkit-appearance: none;*/
+  /*-moz-appearance: none;*/
+  /*appearance: none;*/
+}

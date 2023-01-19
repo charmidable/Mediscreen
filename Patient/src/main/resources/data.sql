@@ -1,0 +1,12 @@
+LOCK TABLES patient WRITE;
+INSERT INTO patient VALUES ( 1, 'Lucas'    , 'Ferguson', '2 Warren Street'             , '387-866-1399', 'male',    '1968-06-22');
+INSERT INTO patient VALUES ( 2, 'Pippa'    , 'Rees'    , '745 West Valley Farms Drive' , '628-423-0993', 'female',  '1952-09-27');
+INSERT INTO patient VALUES ( 3, 'Edward'   , 'Arnold'  , '599 East Garden Ave'         , '123-727-2779', 'male',    '1952-11-11');
+INSERT INTO patient VALUES ( 4, 'Anthony'  , 'Sharp'   , '894 Hall Street'             , '451-761-8383', 'male',    '1946-11-26');
+INSERT INTO patient VALUES ( 5, 'Wendy'    , 'Ince'    , '4 Southampton Road'          , '802-911-9975', 'female',  '1958-06-29');
+INSERT INTO patient VALUES ( 6, 'Tracey'   , 'Ross'    , '40 Sulphur Springs Dr'       , '131-396-5049', 'female',  '1949-12-07');
+INSERT INTO patient VALUES ( 7, 'Claire'   , 'Wilson'  , '12 Cobblestone St'           , '300-452-1091', 'female',  '1966-12-31');
+INSERT INTO patient VALUES ( 8, 'Max'      , 'Buckland', '193 Vale St'                 , '833-534-0864', 'male',    '1945-06-24');
+INSERT INTO patient VALUES ( 9, 'Natalie'  , 'Clark'   , '12 Beechwood Road'           , '241-467-9197', 'female',  '1964-06-18');
+INSERT INTO patient VALUES (10, 'Piers'    , 'Bailey'  , '1202 Bumble Dr'              , '747-815-0557', 'male',    '1959-06-28');
+UNLOCK TABLES;

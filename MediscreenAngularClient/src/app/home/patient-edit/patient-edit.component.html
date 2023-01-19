@@ -1,0 +1,124 @@
+<form #patientForm = "ngForm">
+  <table class="table">
+
+    <tr>
+      <td colspan="4" align="center"><h4>{{patient.id == null ? 'Add' : 'Edit'}} &nbsp; Patient</h4></td>
+<!--      <td class="col-md-3"></td>-->
+<!--      <td class="col-md-3"></td>-->
+      <td></td>
+    </tr>
+
+    <tr>
+      <td class="col-md-3">
+        <b>Firstname</b>
+        <br/>
+        <input type         = "text"
+               class        = "form-control"
+               id           = "firstname"
+               placeholder  = "firstname"
+               [(ngModel)]  = "formPatient.firstname"
+               (change)     = "checkIfFirstnameIsValid()"
+               name         = "firstName"
+               required
+        >
+      </td>
+
+      <td class="col-md-3">
+        <b>Lastname</b><br/>
+        <input type         = "text"
+               class        = "form-control"
+               id           = "lastname"
+               placeholder  = "lastname"
+               [(ngModel)]  = "formPatient.lastname"
+               (change)     = "checkIfLastnameIsValid()"
+               name         = "lastname"
+               required
+        >
+      </td>
+
+
+      <td class="col-md-3">
+        <b>Date of birth</b>
+        <br/>
+        <input type         = "date"
+               class        = "form-control"
+               id           = "dateOfBirth"
+               placeholder  = "Date Of Birth"
+               [(ngModel)]  = "formPatient.birthdate"
+               name         = "dateOfBirth"
+               required
+        >
+      </td>
+
+
+      <td class="col-md-3">
+        <b>Sex</b>
+        <br/>
+        <select required
+                id           = "sex"
+                [(ngModel)]  = "formPatient.sex"
+                name         = "sex"
+        >
+          <option value="undefined" disabled selected>select</option>
+          <option value="male">male</option>
+          <option value="female">female</option>
+
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>Address</b>
+        <br/>
+        <input type         = "text"
+               class        = "form-control"
+               id           = "address"
+               placeholder  = "address"
+               [(ngModel)]  = "formPatient.address"
+               name         = "address"
+        >
+      </td>
+
+
+      <td colspan="2">
+        <b>Phone</b>
+        <br/>
+        <input type         = "text"
+               class        = "form-control"
+               id           = "phone"
+               placeholder  = "phone"
+               [(ngModel)]  = "formPatient.phone"
+               name         = "phone"
+          >
+        </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <button class="btn-primary btn-sm"
+                [disabled] = "patientForm.invalid"
+                (click)="onSubmit()"> &nbsp; S a v e &nbsp; </button>
+<!--        <button class="btn-primary btn-sm mb-1" (click)="setPatient(patient.id)">view</button>-->
+      </td>
+    </tr>
+    <tr> &nbsp;</tr>
+  </table>
+</form>
+
+<span *ngIf="action != 'addPatient' ">
+  <h4>Patient Notes:</h4>
+
+  <span *ngIf="patient.notes.length == 0">
+    <h6 >The patient does not have any notes yet.</h6>
+  </span>
+
+  <table *ngIf="patient.notes.length>0" class="table">
+    <tr *ngFor="let note of patient.notes">
+      <td>
+        <b>{{note.date}}</b>
+        <br/>{{note.note}}
+      </td>
+    </tr>
+  </table>
+
+</span>

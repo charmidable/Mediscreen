@@ -1,0 +1,47 @@
+<div class="roomDetails">
+
+  <table class="table">
+
+    <tr>
+      <td class="col-md-3"></td>
+      <td class="col-md-3"><h4>Patient</h4></td>
+      <td class="col-md-3"><a class="btn-warning btn-sm mb-2" (click)="editPatient()">edit</a></td>
+      <td class="col-md-3"></td>
+    </tr>
+
+    <tr>
+      <td>Firstname<br/><b>{{patient.firstname}}</b></td>
+      <td>LastName<br/><b>{{patient.lastname}}</b></td>
+      <td>Date of birth<br/><b>{{patient.birthdate}}</b></td>
+      <td>Sex<br/><b>{{patient.sex}}</b></td>
+    </tr>
+
+    <tr>
+      <td>Diabetes Risk<br/><b>{{patient.diabetesRiskLevel}}</b></td>
+      <td colspan="2">Address<br/><b>{{patient.address}}</b></td>
+      <td>Phone<br/><b>{{patient.phone}}</b></td>
+    </tr>
+
+    <tr>
+    </tr>
+  </table>
+
+  <h4>Patient Notes: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+    <button class="btn-primary btn-sm mb-1" (click)="addNote()">New Note</button>
+  </h4>
+
+
+  <span *ngIf="patient.notes.length == 0">
+  <h6 >The patient does not have any notes yet.</h6>
+  </span>
+  <table *ngIf="patient.notes.length>0" class="table">
+    <tr *ngFor="let note of patient.notes">
+      <td>
+        <b>{{note.date}}</b> &nbsp;  &nbsp; &nbsp;  &nbsp;
+        <a class="btn-warning btn-sm mb-2" (click)="editNote(note.id)">edit</a> &nbsp;  &nbsp; &nbsp;  &nbsp;
+        <a class="btn-warning btn-sm mb-2" (click)="deleteNote(note)">delete</a>
+        <br/>{{note.note}}
+      </td>
+    </tr>
+  </table>
+</div>

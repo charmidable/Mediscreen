@@ -1,0 +1,36 @@
+<div class="row">
+
+  <div class="col-5">
+    <table class="table">
+      <tr>
+        <td></td>
+        <td colspan="2">
+          <h4>Patients</h4>
+        </td>
+        <td>&nbsp;<a class="btn-warning btn-sm mb-2" (click)="addPatient()">add</a></td>
+      </tr>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th colspan="2">Date of birth</th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{patient.firstname}}</td>
+          <td>{{patient.lastname}}</td>
+          <td>{{patient.birthdate}}</td>
+          <td>
+            <button class="btn-primary btn-sm mb-1" (click)="setPatient(patient.id)">view</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-7">
+    <app-patient-detail *ngIf = "action === 'view'        || action === 'deleteNote'" [patient]="selectedPatient"></app-patient-detail>
+    <app-patient-edit   *ngIf = "action === 'editPatient' || action === 'addPatient'" [patient]="selectedPatient"></app-patient-edit>
+    <app-note-edit      *ngIf = "action === 'editNote'    || action === 'addNote'"    [patient]="selectedPatient"></app-note-edit>
+  </div>
+
+</div>
